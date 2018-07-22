@@ -1,4 +1,5 @@
-export default function printMe() {
-  
-    console.log("updating print.js....")
-  }
+console.log("The print.js module has loaded !!");
+
+export default ()=>{
+    console.log("Button Clicked~~! ");
+}

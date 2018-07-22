@@ -1,22 +1,24 @@
-async function getDocument() {
-    /*return import('lodash').then(_ => {
-        var element = document.createElement('div');
-        var _ = _.default;
+import _ from "lodash";
 
-        element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+function component() {
+    var element = document.createElement("div");
+    var button = document.createElement("button");
+    var br = document.createElement("br");
 
-        return element;
-    }).catch(error => 'An error occurred while loading the component')*/
+    button.innerHTML = "Click";
 
-    var element = document.createElement('div');
-    const _ = await import ('lodash');
+    element.innerHTML = _.join(['Hello', 'Webpack'], ' ');
 
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+    element.appendChild(br);
+    element.appendChild(button);
+
+    button.onclick = e => import('./print').then(module => {
+       var print = module.default;
+
+       print();
+    });
 
     return element;
-
 }
 
-getDocument().then(component => {
-    document.body.appendChild(component);
-})
+document.body.appendChild(component());
