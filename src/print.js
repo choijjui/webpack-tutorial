@@ -1,5 +1,3 @@
-console.log("The print.js module has loaded !!");
-
-export default ()=>{
-    console.log("Button Clicked~~! ");
+export default function print(text) {
+    console.log(text);
 }
